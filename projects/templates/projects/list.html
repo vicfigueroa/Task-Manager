@@ -23,11 +23,13 @@
                         <th>Number of tasks</th>
                     </tr>
                 </thead>
+                {% for project in list_projects %}
                 <tbody>
-                    {% for project in list_projects %}
                     <tr>
-                        <td>{{ project.name }}</td>
-                        <td></td>
+                        <td>
+                            <a href="{% url 'show_project' project.pk %}">{{ project.name }}</a>
+                        </td>
+                        <td>{{ tasks|length }}</td>
 
                     </tr>
                     {% endfor %}
@@ -37,3 +39,5 @@
 
 
         </div>
+    </main>
+</body>
