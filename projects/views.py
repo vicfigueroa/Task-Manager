@@ -33,5 +33,5 @@ def create_project(request):
 @login_required
 def show_project(request, id):
     project = get_object_or_404(Project, id=id)
-    context = {"project_object": project}
+    context = {"project": project}
     return render(request, "projects/detail.html", context)

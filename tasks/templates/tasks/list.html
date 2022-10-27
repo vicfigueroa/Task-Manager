@@ -3,7 +3,7 @@
     <main>
         <div>
             <h1>My Tasks</h1>
-            {% if not tasks %}
+            {% if tasks|length == 0  %}
                 <p>You have no tasks</p>
             {% else %}
             <table>
@@ -24,14 +24,12 @@
                         <td>
                             {% if task.is_complete %}
                                 Done
+                            {% endif %}
                             </td>
-                        {% else %}
-                        </td>
-                    {% endif %}
                     </tr>
                 </tbody>
+                {% endfor %}
             </table>
-            {% endfor %}
             {% endif %}
         </div>
     </main>

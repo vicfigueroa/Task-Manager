@@ -10,6 +10,10 @@
             <p>
                 <a href="{% url 'create_task' %}">Create a new task</a>
             </p>
+
+        {% if project.tasks.all|length == 0  %}
+        <p>This project has no tasks</p>
+        {% else %}
         <table>
             <thead>
                 <tr>
@@ -20,9 +24,18 @@
                     <th>Is completed</th>
                 </tr>
             </thead>
+
+            {% for task in project.tasks.all %}
             <tbody>
+                <td> {{ task.name }}</td>
+                <td> {{ task.assignee }}</td>
+                <td> {{ task.start_date }}</td>
+                <td> {{ task.due_date }}</td>
+                <td> {{ task|yesno:"yes,no" }}</td>
             </tbody>
+            {% endfor %}
         </table>
+        {% endif %}
     </div>
 </main>
 
