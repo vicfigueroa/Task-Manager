@@ -1,4 +1,4 @@
-from django.contrib import admin
+# from django.contrib import admin
 from django.urls import path
 from projects.views import list_projects, create_project, show_project
 
